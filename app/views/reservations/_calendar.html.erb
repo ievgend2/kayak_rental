@@ -1,0 +1,12 @@
+<%= month_calendar events: reservations do |date, reservations| %>
+
+<%= date %>
+<% reservations.each do |reservation| %>
+<div class="">
+  <%= link_to reservation.name, reservation, class: "btn btn-outline-dark btn" %>
+
+
+</div>
+
+<% end %>
+<% end %>

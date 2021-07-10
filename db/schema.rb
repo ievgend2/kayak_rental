@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_064109) do
+ActiveRecord::Schema.define(version: 2021_07_09_202227) do
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_064109) do
 
   create_table "kayaks", force: :cascade do |t|
     t.integer "customer_id"
-    t.string "name"
+    t.string "model"
     t.string "location"
     t.integer "capacity"
     t.integer "price"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 2021_07_07_064109) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_kayaks_on_customer_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "kayak_id"
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_reservations_on_customer_id"
+    t.index ["kayak_id"], name: "index_reservations_on_kayak_id"
   end
 
 end

@@ -5,4 +5,5 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable, :confirmable
 
          has_many :kayaks
+         has_many :reservations, dependent: :destroy
 end

@@ -1,6 +1,7 @@
 class KayaksController < ApplicationController
   before_action :set_kayak, only: %i[ show edit update destroy ]
 
+
   # GET /kayaks or /kayaks.json
   def index
     @kayaks = Kayak.all
@@ -8,6 +9,7 @@ class KayaksController < ApplicationController
 
   # GET /kayaks/1 or /kayaks/1.json
   def show
+    
   end
 
   # GET /kayaks/new
@@ -22,6 +24,7 @@ class KayaksController < ApplicationController
   # POST /kayaks or /kayaks.json
   def create
     @kayak = Kayak.new(kayak_params)
+    @kayak.customer_id = current_customer.id
 
     respond_to do |format|
       if @kayak.save

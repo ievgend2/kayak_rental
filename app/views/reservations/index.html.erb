@@ -1,0 +1,8 @@
+<div class="container m-auto my-4">
+  <% unless current_customer.reservations.any? %>
+  <%= render "reservations_cta" %>
+  <% else %>
+  <%= render "reservations_landing", reservations: @reservations %>
+
+  <% end %>
+</div>

@@ -12,4 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_calendar
+ *= require trix
  */
+
+ * {
+ margin: 0;
+ padding: 0;
+ }
+
+ @import "components/tabs";

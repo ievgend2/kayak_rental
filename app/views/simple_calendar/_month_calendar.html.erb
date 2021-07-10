@@ -1,0 +1,32 @@
+<div class="simple-calendar shadow">
+  <div class="calendar-heading  d-flex justify-content-between  ">
+    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn btn-outline-dark btn-sm m-4 "%>
+    <span class="h3 m-4"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn btn-outline-dark btn-sm m-4 "%>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th class="fw-lighter"><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                <span class="fw-lighter"><% passed_block.call day.strftime("%d"), sorted_events.fetch(day, []) %></span>
+
+
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+    <%# <%= link_to  reservations_path%> %>

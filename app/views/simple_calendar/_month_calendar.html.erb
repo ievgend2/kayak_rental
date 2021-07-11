@@ -1,4 +1,4 @@
-<div class="simple-calendar shadow">
+<div class="simple-calendar shadow m-3">
   <div class="calendar-heading  d-flex justify-content-between  ">
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn btn-outline-dark btn-sm m-4 "%>
     <span class="h3 m-4"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
@@ -21,7 +21,7 @@
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
 
-                <span class="fw-lighter"><% passed_block.call day.strftime("%d"), sorted_events.fetch(day, []) %></span>
+                <span class="fw-lighter"><% passed_block.call day.strftime("%d"), sorted_events.fetch(day, []) %> </span>
 
 
             <% end %>
@@ -31,4 +31,3 @@
     </tbody>
   </table>
 </div>
-  <%# <%= link_to reservations_path%> %>

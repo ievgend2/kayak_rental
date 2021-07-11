@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_202227) do
+ActiveRecord::Schema.define(version: 2021_07_11_150943) do
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -40,13 +40,20 @@ ActiveRecord::Schema.define(version: 2021_07_09_202227) do
   create_table "kayaks", force: :cascade do |t|
     t.integer "customer_id"
     t.string "model"
-    t.string "location"
-    t.integer "capacity"
-    t.integer "price"
     t.string "photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "rate", precision: 5, scale: 2
+    t.string "description"
+    t.string "capacity"
     t.index ["customer_id"], name: "index_kayaks_on_customer_id"
+  end
+
+  create_table "reservation_kayaks", force: :cascade do |t|
+    t.integer "reservation_id", null: false
+    t.integer "kayak_id", null: false
+    t.index ["kayak_id"], name: "index_reservation_kayaks_on_kayak_id"
+    t.index ["reservation_id"], name: "index_reservation_kayaks_on_reservation_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -57,8 +64,11 @@ ActiveRecord::Schema.define(version: 2021_07_09_202227) do
     t.datetime "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "location"
     t.index ["customer_id"], name: "index_reservations_on_customer_id"
     t.index ["kayak_id"], name: "index_reservations_on_kayak_id"
   end
 
+  add_foreign_key "reservation_kayaks", "kayaks"
+  add_foreign_key "reservation_kayaks", "reservations"
 end

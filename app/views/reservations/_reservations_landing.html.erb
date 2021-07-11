@@ -1,3 +1,4 @@
+
 <nav class=" mt-5 mb-5  rounded ">
   <div id="nav-tab" class="tabs d-flex justify-content-between text-center">
 
@@ -22,26 +23,64 @@
      <h1 class="m-4">Reservations</h1>
 
      <% reservations.each do |reservation| %>
-        <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
-          <div class="flex-1 flex justify-between">
-            <div>
-              <%= link_to reservation.name, reservation, class: "link mr-4" %>
-            </div>
-            <div>
-              <%= readable_time(reservation.start_time) %>
-              <%= readable_time(reservation.end_time) %>
-            </div>
-          </div>
-        </div>
 
-        <%= link_to "Cancel reservation", reservation, method: :delete, data: { confirm: "Are you sure? There are no refunds." }, class: "btn btn-outline-danger m-4"  %>
+
+
+
+          <div class="p-4 bg-white border border-2 rounded m-3">
+
+            <div class="d-flex  justify-content-between align-center ">
+              <h2 class="fw-bolder""><%= reservation.name %></h2>
+              <div class="mb-1">
+                <%= link_to 'Back', reservations_path, class: "btn btn-outline-dark btn-sm pt-1"  %>
+                        <%= link_to "Modify", edit_reservation_path(reservation),   class: "btn btn-outline-success btn-sm pt-1"  %>
+                <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: "Are you sure you want to cancel? "}, class: "btn btn-outline-danger btn-sm pt-1"  %>
+              </div>
+            </div>
+            <div class="border bg-light  my-3 px-3 pt-3 d-flex  justify-content-between ">
+              <p class="border border-secondary border-2 py-1 px-4  rounded-pill fs-5 ">
+                Start time: <span class="fw-bold"><%= readable_time(reservation.start_time) %></span>
+              </p>
+              <div class="col mt-1">
+                <div class="mt-3 border-secondary border-2 border-dashed "></div>
+                <div></div>
+              </div>
+              <p class="border border-secondary border-2 py-1 px-4  rounded-pill fs-5 ">
+                End time: <span class="fw-bold"><%= readable_time(reservation.end_time) %></span>
+              </p>
+            </div>
+            <div class=" border border-1 bg-light pb-3 ">
+              <p class=" border-bottom border-2 fs-4 margin-left-4 pt-2">Kayak reservation Summary:</p>
+              <% if reservation.kayaks.any? %>
+                        <% reservation.kayaks.each do |kayak| %>
+                          <div class="margin-left-4 ">
+
+                              <%= kayak.description %>
+                          </div>
+                        <% end %>
+                      <% end %>
+                        <p class="   margin-left-4"><strong>Location:</strong>   <%= reservation.location %></p>
+            </div>
+            </div>
+
+
+
+
+
+
      <% end %>
   </div>
 
   <div id="calendar" class="tab-panel active">
-    <h2 class="text-center">Reservation Calendar</h2>
+    <h2 class="text-center mt-3">Reservation Calendar</h2>
     <div id="reservation-calendar">
-      <%= render "calendar", reservations: reservations  %>
+      <%= render "calendar", reservations: reservations%>
+      <div class="d-flex justify-content-end">
+
+        <%= link_to "Reserve Now", new_reservation_path, class: "btn btn-outline-dark btn-sm m-3" %>
+      </div>
+
     </div>
   </div>
+
 </div>

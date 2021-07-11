@@ -62,11 +62,11 @@ class ReservationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
-      @reservation = Reservation.find(params[:id])
+      @reservation = Reservation.find(params[:id] )
     end
 
     # Only allow a list of trusted parameters through.
     def reservation_params
-      params.require(:reservation).permit(:name, :start_time, :end_time, :customer)
+      params.require(:reservation).permit(:name, :start_time, :end_time, :customer_id, :location, kayak_ids: [])
     end
 end

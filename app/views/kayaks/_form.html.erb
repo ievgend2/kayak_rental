@@ -16,19 +16,21 @@
     <%= form.text_field :model %>
   </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
+
 
   <div class="field">
     <%= form.label :capacity %>
-    <%= form.number_field :capacity %>
+    <%= form.text_field :capacity %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.label :rate %>
+    <%= form.number_field :rate, step: :any %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
   </div>
 
   <div class="actions">

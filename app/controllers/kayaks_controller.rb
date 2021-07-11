@@ -9,7 +9,7 @@ class KayaksController < ApplicationController
 
   # GET /kayaks/1 or /kayaks/1.json
   def show
-    
+
   end
 
   # GET /kayaks/new
@@ -67,6 +67,6 @@ class KayaksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def kayak_params
-      params.require(:kayak).permit(:name, :location, :capacity, :price)
+      params.require(:kayak).permit(:model, :capacity, :rate, :description)
     end
 end

@@ -40,6 +40,10 @@ gem 'stripe'
 
 gem 'pg', '~> 0.18.4'
 gem 'rails_12factor', group: :production
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'rails-controller-testing'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

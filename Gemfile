@@ -35,6 +35,9 @@ gem 'simple_calendar'
 gem 'trix'
 gem 'stripe'
 
+# gem 'carrierwave'
+# gem 'fog'
+
 gem 'pg', '~> 0.18.4'
 gem 'rails_12factor', group: :production
 

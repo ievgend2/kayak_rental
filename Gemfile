@@ -35,6 +35,7 @@ gem 'simple_calendar'
 gem 'trix'
 gem 'stripe'
 gem 'bootstrap-sass'
+gem 'jquery-rails'
 
 # gem 'carrierwave'
 # gem 'fog'

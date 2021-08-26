@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_150943) do
+ActiveRecord::Schema.define(version: 2021_07_30_210245) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -40,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_07_11_150943) do
   create_table "kayaks", force: :cascade do |t|
     t.integer "customer_id"
     t.string "model"
-    t.string "photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "rate", precision: 5, scale: 2
@@ -58,7 +60,6 @@ ActiveRecord::Schema.define(version: 2021_07_11_150943) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "kayak_id"
     t.string "name"
     t.datetime "start_time"
     t.datetime "end_time"
@@ -66,7 +67,6 @@ ActiveRecord::Schema.define(version: 2021_07_11_150943) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "location"
     t.index ["customer_id"], name: "index_reservations_on_customer_id"
-    t.index ["kayak_id"], name: "index_reservations_on_kayak_id"
   end
 
   add_foreign_key "reservation_kayaks", "kayaks"

@@ -7,8 +7,8 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.0.rc2'
 # Use sqlite3 as the database for Active Record
 
-gem 'sqlite3'
-
+# gem 'sqlite3'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -38,7 +38,6 @@ gem 'stripe'
 # gem 'carrierwave'
 # gem 'fog'
 
-gem 'pg', '~> 0.18.4'
 gem 'rails_12factor', group: :production
 gem 'rspec-rails'
 gem 'factory_bot_rails'

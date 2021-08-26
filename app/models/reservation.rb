@@ -1,6 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :customer
-  has_many :reservation_kayaks
+  has_many :reservation_kayaks, dependent: :destroy
   has_many :kayaks, through: :reservation_kayaks
 
   validates :name, presence: true, length: { minimum: 2 }

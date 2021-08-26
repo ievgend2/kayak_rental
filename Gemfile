@@ -34,7 +34,7 @@ gem 'sidekiq'
 gem 'simple_calendar'
 gem 'trix'
 gem 'stripe'
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass'
 
 # gem 'carrierwave'
 # gem 'fog'

@@ -292,7 +292,7 @@ DEPENDENCIES
   rails_12factor
   redis
   rspec-rails
-  sass-rails (~> 5.0)
+  sass-rails
   selenium-webdriver
   sidekiq
   simple_calendar

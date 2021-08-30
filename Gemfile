@@ -34,7 +34,10 @@ gem 'sidekiq'
 gem 'simple_calendar'
 gem 'trix'
 gem 'stripe'
+
+gem 'bootstrap'
 gem 'bootstrap-sass'
+# gem 'bootstrap-sprockets'
 gem 'jquery-rails'
 
 # gem 'carrierwave'
@@ -45,6 +48,8 @@ gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'rails-controller-testing'
+
+gem 'webpacker'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

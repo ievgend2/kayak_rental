@@ -35,8 +35,8 @@ gem 'simple_calendar'
 gem 'trix'
 gem 'stripe'
 
-gem 'bootstrap'
-gem 'bootstrap-sass'
+# gem 'bootstrap'
+# gem 'bootstrap-sass'
 # gem 'bootstrap-sprockets'
 gem 'jquery-rails'
 

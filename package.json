@@ -1,7 +1,7 @@
 {
   "name": "kayak_rental",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
   "engines": {
     "yarn": "1.7.0"
   }

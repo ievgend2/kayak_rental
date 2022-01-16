@@ -1,5 +1,8 @@
 {
   "name": "kayak_rental",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "5.2.1"
+
+  }
 }

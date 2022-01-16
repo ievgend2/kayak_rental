@@ -49,6 +49,7 @@ test:
   encoding: unicode
   database: kayak_rental
   pool: 5
+  
   username: vagrant
   password:
   timeout: 5000
